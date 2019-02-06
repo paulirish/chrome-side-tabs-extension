@@ -9,7 +9,15 @@ I (paulirish) recovered it and put it on Github. Because I like it.
 
 ### To install
 
-Install as an unpacked extension.
+Install as an unpacked extension. To do that:
+
+* Download this repo or clone it
+* Open chrome://extensions
+* Enable "Developer mode" at the top of the page
+* Click "Load unpacked" and find the folder of your checkout (where `manifest.json` is). Select it.
+* Ta-da! It's installed.
+
+Once the window is open, click the hamburger menu for a few preferences. There's also a bunch of options under "More options".
 
 ### Screenshot
 
