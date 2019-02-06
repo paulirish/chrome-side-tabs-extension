@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="coreController as vm">
+<head lang="en">
+
+    <meta charset="UTF-8">
+    <title>Side Tabs ( {{vm.data.numberOfTabs}} )</title>
+
+    <link rel="stylesheet" type="text/css" href="../bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../bower_components/angular/angular-csp.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/app.css">
+
+</head>
+<body data-ng-csp id="app">
+
+<div id="top">
+
+    <div class="tab-wrapper">
+
+        <div class="left">
+            <div class="tab button"
+                 ng-class="{highlighted: vm.settings.showSearch}"
+                 ng-click="vm.clickShowSearch()">
+                <div class="icons" align="center">
+                    <i class="fa fa-search"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="right">
+            <div class="tab button"
+                 ng-class="{highlighted: vm.settings.showSettings}"
+                 ng-click="vm.clickShowSettings()">
+                <div class="icons" align="center">
+                    <i class="fa fa-bars"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="middle">
+
+            <div class="tab invisible-tab"></div>
+
+            <div class="tab absolute-tab fade" ng-click="vm.clickCreateNewTab()" ng-show="!vm.settings.showSearch">
+                <span class="new">New Tab</span>
+            </div>
+
+            <div class="tab absolute-tab fade" ng-show="vm.settings.showSearch">
+                <input class="form-control" type="text" placeholder="Search" id="search"
+                       ng-model="vm.data.search" ng-change="vm.loadTabs()" ng-model-options="{ debounce: 250 }">
+            </div>
+        </div>
+
+        <div class="separator"></div>
+
+
+        <div class="ng-cloak" ng-if="vm.settings.showSettings">
+            <div class="tabs-wrapper">
+
+                <div class="tabs">
+
+                    <div class="tab"
+                         ng-class="{highlighted: vm.settings.showTabsForSelectedWindow}"
+                         ng-click="vm.clickShowTabsForSelectedWindow()">
+                        <div class="icon">
+                            <i class="fa fa-lg fa-square-o"></i>
+                        </div>
+                        <div class="title">
+                    <span>
+                        Show only tabs of current window
+                    </span>
+                        </div>
+                    </div>
+
+                    <div class="tab"
+                         ng-class="{highlighted: vm.settings.showTabsGroupedPerWindow}"
+                         ng-click="vm.clickShowTabsGroupedPerWindow()">
+                        <div class="icon">
+                            <i class="fa fa-lg fa-minus"></i>
+                        </div>
+                        <div class="title">
+                    <span>
+                        Show window separators
+                    </span>
+                        </div>
+                    </div>
+
+                    <div class="tab"
+                         ng-class="{highlighted: vm.settings.showPinnedTabs}"
+                         ng-click="vm.clickShowPinnedTabs()">
+                        <div class="icon">
+                            <i class="fa fa-lg fa-thumb-tack"></i>
+                        </div>
+                        <div class="title">
+                    <span>
+                        Show pinned tabs
+                    </span>
+                        </div>
+                    </div>
+
+                    <div class="tab" ng-click="vm.clickMoreSettings()">
+
+                        <div class="icon">
+                            <i class="fa fa-lg fa-cog"></i>
+                        </div>
+                        <div class="title">
+                    <span>
+                        More options
+                    </span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="separator"></div>
+
+        </div>
+
+        <div class="ng-cloak" ng-if="vm.settings.showPinnedTabs">
+
+            <div class="tabs-wrapper">
+
+                <div class="window-separator ng-cloak" ng-if="vm.settings.showTabsGroupedPerWindow">
+                    Pinned Tabs
+                </div>
+
+                <div class="tabs pinned" ng-repeat="window in vm.data.windows track by window.id">
+
+                    <div ng-repeat="tab in window.tabs track by tab.id">
+                        <div ng-if="tab.pinned"
+                             tab="tab" window="window" id-last-chrome-window="vm.data.idLastChromeWindow"
+                             on-click="vm.clickTab(tab)" on-close="vm.clickCloseTab(tab)"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="separator"></div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+<div class="tabs-wrapper">
+
+    <div class="tabs">
+
+        <div ng-repeat="window in vm.data.windows track by window.id">
+
+            <div class="window-separator ng-cloak" ng-if="vm.settings.showTabsGroupedPerWindow && vm.data.search.length == 0">
+                Window
+            </div>
+
+            <div ng-repeat="tab in window.tabs track by tab.id">
+                <div ng-if="vm.data.search.length === 0">
+                    <div ng-if="!tab.pinned && vm.settings.showPinnedTabs"
+                         tab="tab" window="window" id-last-chrome-window="vm.data.idLastChromeWindow"
+                         on-click="vm.clickTab(tab)" on-close="vm.clickCloseTab(tab)"></div>
+                    <div ng-if="!vm.settings.showPinnedTabs"
+                         tab="tab" window="window" id-last-chrome-window="vm.data.idLastChromeWindow"
+                         on-click="vm.clickTab(tab)" on-close="vm.clickCloseTab(tab)"></div>
+                </div>
+                <div ng-if="(vm.data.search.length > 0 && tab.title.toLowerCase().indexOf(vm.data.search.toLowerCase()) !== -1)">
+                    <div tab="tab" window="window" id-last-chrome-window="vm.data.idLastChromeWindow"
+                         on-click="vm.clickTab(tab)" on-close="vm.clickCloseTab(tab)"></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="clear"></div>
+
+    </div>
+
+</div>
+
+<!-- SCRIPTS -->
+
+<script src="../bower_components/angular/angular.js"></script>
+<script src="../bower_components/angular-animate/angular-animate.min.js"></script>
+
+<script src="core/core.module.js"></script>
+<script src="core/core.controller.js"></script>
+<script src="core/directives/tab/tab.js"></script>
+
+<script src="app.module.js"></script>
+<script src="app.config.js"></script>
+
+<!-- END SCRIPTS -->
+
+</body>
+</html>

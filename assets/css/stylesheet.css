@@ -1,0 +1,210 @@
+#acst {
+    font-family: arial, sans-serif;
+    font-size: 11px;
+}
+
+#acst_pageslide {
+
+}
+
+#acst-container-top {
+    padding: 4px 4px 0px 4px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.acst_container_top_left {
+    overflow:hidden;
+    padding-right: 2px;
+}
+
+.acst_right {
+    margin-left: 4px;
+    float:right;
+    display: inline-block;
+}
+
+.acst_container_tabs {
+    position: absolute;
+    top: 35px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    display: block;
+}
+
+.acst_container_tabs_space {
+    width: 100%;
+    height: 5px;
+}
+
+.acst-tabs {
+    margin: 0px 4px;
+}
+
+.acst-tabs-pinned {
+}
+
+.acst-tab {
+    width: 100%;
+    margin-bottom: 4px;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    display: inline-block;
+    z-index: 1;
+    position: relative;
+}
+
+.acst-tab .new {
+    text-align: center;
+    width: 100%;
+    display: block;
+    line-height: 24px;
+}
+
+.acst_button {
+    margin-bottom: 4px;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.acst_tab_icon {
+    float: left;
+    width: 16px;
+    height: 16px;
+    padding-left: 4px;
+
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+}
+
+.acst-tab.highlighted {
+    border-radius: 5px;
+    background: whitesmoke;
+    z-index: 2;
+}
+
+.acst-tab:hover {
+}
+
+.acst_tab_title {
+    z-index: 4;
+    vertical-align: middle;
+    margin-left: 4px;
+    margin-right: 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    overflow: hidden;
+    padding-left: 4px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.acst_tab_close {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAH6wAAB+sB64T/yQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACoSURBVDiNrZNRDcMwDESfx6EUQmAMAmMowmBFUwJVYQzABqAM0l/3x6myKKs0uZZOcizfyZfEoqrUISIBeAB3A8DLMKnq54ugqpiIAAnYAP2BzXrk4FXk5YTYYikiRSD9QS5IxX7ojP0GcnXOVmvtBICxQx6AaMRs+dAReQLMTTED0caLTZ6b3hlg7fg7RE7ICqw3Lgi3hRHnJfqe0f2RLvnKnmUS7zrvY/XqrSYSMewAAAAASUVORK5CYII5d1addf5cf8cda87433d0c5670d01b22") no-repeat top left;
+    background-origin: content-box;
+    background-size: contain;
+    opacity: 0.1;
+    transition-property: opacity;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-in-out;
+    width: 14px;
+    padding: 2px;
+    z-index: 5;
+    position: absolute;
+    right: 3px;
+    top: 0px;
+    bottom: 0px;
+    background-position-y: 50%;
+}
+
+.acst_tab_close:hover {
+    opacity:1;
+}
+
+.acst_center {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+}
+
+.acst_outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.acst_middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.acst_inner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+}
+
+.acst_inner_content {
+    padding-top: 5px;
+    border: 1px solid #BBBBBB;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px #CCCCCC;
+    background-color: whitesmoke;
+}
+
+.acst_logo {
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-image: url('chrome-extension://__MSG_@@extension_id__/assets/images/al_gray.png');
+    background-size: contain;
+    margin: auto;
+}
+
+.acst_logo:hover {
+    background-image: url('chrome-extension://__MSG_@@extension_id__/assets/images/al_blue.png');
+}
+
+.acst_separator {
+    background: #aaa;
+    clear: both;
+    float: none;
+    width: 100%;
+    height: 1px;
+    margin-bottom: 4px;
+    border: none;
+}
+
+.acst_window_aware_icon {
+    background: url("chrome-extension://__MSG_@@extension_id__/assets/images/window-aware.png") no-repeat center;
+    background-size: contain;
+    height: 16px;
+}
+
+.acst_disabled {
+    opacity: 0.25;
+}
+
+#acst_sortable {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+#acst_sortable li {
+    margin: 0px;
+    padding: 0px;
+}

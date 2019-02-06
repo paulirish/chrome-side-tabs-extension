@@ -1,0 +1,17 @@
+V 2.1.0 (UPCOMING)
+    - TODO: Allow to move tabs by dragging to a new position
+    - TODO: Close when all Chrome windows are closed
+
+V 2.0.2 (CURRENT)
+    - Removed some permissions which were not needed
+
+V 2.0.1
+    - Fixed a bug where closing a tab would click it before closing it making a tab next to it active
+
+V 2.0.0
+    - Minimize and restore along with the main Chrome window which opened the extension
+    - Side tabs window adapts position based on Chrome main window
+    - Move some settings to a Settings button inside Side Tabs Window
+    - Ability to show pinned tabs
+    - Filter tabs
+    - Memorize Main Window position to restore it once Side Tabs are closed

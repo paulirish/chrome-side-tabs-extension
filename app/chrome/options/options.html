@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Chrome Side Tabs Options</title>
+    <link rel="stylesheet" type="text/css" href="../../../bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../assets/css/app.css">
+</head>
+<body id="options">
+
+
+<a href="http://www.adrianlungu.com" id="logo"> </a>
+
+<h2 align="center">Chrome Side Tabs</h2>
+
+
+<div class="tab-wrapper">
+    <div class="tab">
+        <span class="new">Tab Preview</span>
+    </div>
+</div>
+
+<div style="margin: 0px 10px;">
+
+    <table style="width: 100%;">
+        <tr>
+            <td>
+                Open Side:
+            </td>
+            <td align="right">
+                <select name="open_side" id="tabOpenSide">
+                    <option value="left">Left</option>
+                    <option value="right">Right</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Tab Height:
+            </td>
+            <td align="right">
+                <input type="number" id="tabHeight" name="tabHeight" style="width: 50px;">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Tab Font Size:
+            </td>
+            <td align="right">
+                <input type="number" id="tabFontSize" name="tabFontSize" style="width: 50px;">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Tab Text Color:
+            </td>
+            <td align="right">
+                <input type="color" id="tabTextColor" name="tabTextColor">
+            </td>
+        </tr>
+        <tr>
+            <td width="100%">
+                Tab Background Color:
+            </td>
+            <td align="right">
+                <input type="color" id="tabBackgroundTopColor" name="tabBackgroundTopColor">
+                <input type="color" id="tabBackgroundBottomColor" name="tabBackgroundBottomColor">
+            </td>
+        </tr>
+        <tr>
+            <td width="100%">
+                Tab Background Hover Color:
+            </td>
+            <td align="right">
+                <input type="color" id="tabBackgroundHoverTopColor" name="tabBackgroundHoverTopColor">
+                <input type="color" id="tabBackgroundHoverBottomColor" name="tabBackgroundHoverBottomColor">
+            </td>
+        </tr>
+        <tr>
+            <td width="100%">
+                Tab Background Highlight Color:
+            </td>
+            <td align="right">
+                <input type="color" id="tabBackgroundHighlightColor" name="tabBackgroundHighlightColor">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Tab Border Color:
+            </td>
+            <td align="right">
+                <input type="color" id="tabBorderColor" name="tabBorderColor">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Background Color:
+            </td>
+            <td align="right">
+                <input type="color" id="backgroundColor" name="backgroundColor">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Single Instance:
+
+                <div class="tooltip">
+                    <i class="fa fa-info-circle"></i>
+                    <span class="text">
+                                Allow only one Chrome Side Tabs window to be open at any time.
+                            </span>
+                </div>
+
+            </td>
+            <td align="right">
+                <input type="checkbox" id="singleInstance" name="singleInstance">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Auto Adjust Width:
+
+                <div class="tooltip">
+                    <i class="fa fa-info-circle"></i>
+                    <span class="text">
+                                Automatically adjust the width along with the Chrome window from which Side Tabs is opened.
+                            </span>
+                </div>
+
+            </td>
+            <td align="right">
+                <input type="checkbox" id="autoAdjustWidth" name="autoAdjustWidth">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Auto Minimize/Restore:
+
+                <div class="tooltip">
+                    <i class="fa fa-info-circle"></i>
+                    <span class="text">
+                                Automatically minimize and restore along with the Chrome window from which Side Tabs is opened.
+                            </span>
+                </div>
+
+            </td>
+            <td align="right">
+                <input type="checkbox" id="autoMinimize" name="autoMinimize">
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+<!-- <input type="checkbox" id="showExtra" name="showExtra" value="True"> Show Extra Buttons ? <br> -->
+
+<div style="padding: 5px; overflow: hidden; display: block;">
+    <button id="save" style="width: 100%;">Save</button>
+</div>
+
+<form action="../donate/donate.html" method="post" target="_blank" align="center"
+      style="margin-top: 12px; margin-right: -5px;">
+    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit"
+           alt="PayPal - The safer, easier way to pay online!">
+    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+
+<span align="center" style="display: block; opacity: 0.4; margin-top: 12px; font-size: 9px;">
+        <!--Icons by <a href="http://www.glyphicons.com">Glyphicons</a><br>-->
+        <br>
+        Copyright © Adrian Lungu 2016 <br>
+        All Rights Reserved <br> <br>
+
+        <div id="version"></div>
+    </span>
+
+<script type="text/javascript" src="options.js"></script>
+
+</body>
+</html>
