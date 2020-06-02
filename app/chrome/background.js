@@ -3,20 +3,21 @@
     var idSideTabsWindow;
     var idCurrentChromeWindow;
     var isLeftSide = true;
-    var width = 250;
+    var width = 365;
 
     function initSideTabs() {
 
         if (width < 30 || width > screen.width - 30) {
-            width = 250;
+            width = 365;
         }
 
-        chrome.windows.update(idCurrentChromeWindow,
-            {
-                'left': isLeftSide ? width : 0,
-                'width': screen.width - width
-            }
-        );
+        // nothx
+        // chrome.windows.update(idCurrentChromeWindow,
+        //     {
+        //         'left': isLeftSide ? width : 0,
+        //         'width': screen.width - width
+        //     }
+        // );
 
         chrome.windows.create({
             'url': chrome.extension.getURL('app/index.html#?idChromeWindow=' + idCurrentChromeWindow + '&screenWidth=' + screen.width),
@@ -52,7 +53,7 @@
 
                 if (!items.sideTabsSettings) {
                     items.sideTabsSettings = {
-                        tabWidth: 250,
+                        tabWidth: 365,
                         showTabsForSelectedWindow: false,
                         showTabsGroupedPerWindow: false,
                         showPinnedTabs: false

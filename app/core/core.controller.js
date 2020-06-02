@@ -92,22 +92,23 @@
             });
 
             // INIT MAIN CHROME WINDOW
-            chrome.windows.update(vm.mainChromeWindow.id,
-                {
-                    'left': vm.optionsSettings.openSide === 'left' ? vm.settings.tabWidth : 0,
-                    'width': vm.data.screenWidth - vm.settings.tabWidth
-                }
-            );
+            // dont move this window
+            // chrome.windows.update(vm.mainChromeWindow.id,
+            //     {
+            //         'left': vm.optionsSettings.openSide === 'left' ? vm.settings.tabWidth : 0,
+            //         'width': vm.data.screenWidth - vm.settings.tabWidth
+            //     }
+            // );
 
             // Auto adjust width
-            if (vm.optionsSettings.autoAdjustWidth) {
-                $interval(vm.checkChromeWindowPosition, 1000);
-            }
+            // if (vm.optionsSettings.autoAdjustWidth) {
+            //     $interval(vm.checkChromeWindowPosition, 1000);
+            // }
 
-            // Auto minimize/restore
-            if (vm.optionsSettings.autoMinimize) {
-                $interval(vm.checkChromeWindowState, 1000);
-            }
+            // // Auto minimize/restore
+            // if (vm.optionsSettings.autoMinimize) {
+            //     $interval(vm.checkChromeWindowState, 1000);
+            // }
 
             vm.loadTabs();
 
@@ -193,8 +194,8 @@
                         openSide: 'left',
                         backgroundColor: '#D4D4D4',
                         singleInstance: true,
-                        autoAdjustWidth: true,
-                        autoMinimize: true
+                        autoAdjustWidth: false,
+                        autoMinimize: false
                     }
                 } else {
                     items.optionsSettings = JSON.parse(items.optionsSettings);
@@ -449,6 +450,9 @@
 
         function checkChromeWindowPosition() {
 
+            // eff all this.. its really annoying.
+            return;
+
             chrome.windows.get(vm.mainChromeWindow.id, function (window) {
 
                 if (vm.mainChromeWindow.left != window.left ||
@@ -490,6 +494,8 @@
         }
 
         function checkChromeWindowState() {
+            // this is annoying.
+            return;
 
             chrome.windows.get(vm.mainChromeWindow.id, function (window) {
 
@@ -524,10 +530,11 @@
 
         function onExit() {
 
-            chrome.windows.update(vm.mainChromeWindow.id, {
-                width: screen.width,
-                left: 0
-            });
+            // NO thx
+            // chrome.windows.update(vm.mainChromeWindow.id, {
+            //     width: screen.width,
+            //     left: 0
+            // });
 
         }
 
