@@ -165,7 +165,7 @@
                          tab="tab" window="window" id-last-chrome-window="vm.data.idLastChromeWindow"
                          on-click="vm.clickTab(tab)" on-close="vm.clickCloseTab(tab)"></div>
                 </div>
-                <div ng-if="(vm.data.search.length > 0 && tab.title.toLowerCase().indexOf(vm.data.search.toLowerCase()) !== -1)">
+                <div ng-if="(vm.data.search.length > 0 && (tab.title.toLowerCase().includes(vm.data.search.toLowerCase()) || tab.url.toLowerCase().includes(vm.data.search.toLowerCase()) )  )">
                     <div tab="tab" window="window" id-last-chrome-window="vm.data.idLastChromeWindow"
                          on-click="vm.clickTab(tab)" on-close="vm.clickCloseTab(tab)"></div>
                 </div>
