@@ -17,7 +17,6 @@
   ],
   "dependencies": {
     "font-awesome": "^4.6.3",
-    "angular": "^1.5.8",
-    "angular-animate": "^1.5.8"
+    "angular": "^1.5.8"
   }
 }

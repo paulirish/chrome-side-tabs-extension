@@ -3,8 +3,6 @@
 
     angular.module('app.core', [
 
-        'ngAnimate'
-
     ]);
 
 })();

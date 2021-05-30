@@ -46,7 +46,7 @@
 
             <div class="tab absolute-tab fade" ng-show="vm.settings.showSearch">
                 <input class="form-control" type="search" placeholder="Search" id="search"
-                       ng-model="vm.data.search" ng-change="vm.loadTabs()" ng-model-options="{ debounce: 250 }">
+                       ng-model="vm.data.search" ng-change="vm.loadTabs()" ng-model-options="{ debounce: 50 }">
             </div>
         </div>
 
@@ -165,7 +165,7 @@
                          tab="tab" window="window" id-last-chrome-window="vm.data.idLastChromeWindow"
                          on-click="vm.clickTab(tab)" on-close="vm.clickCloseTab(tab)"></div>
                 </div>
-                <div ng-if="(vm.data.search.length > 0 && (tab.title.toLowerCase().includes(vm.data.search.toLowerCase()) || tab.url.toLowerCase().includes(vm.data.search.toLowerCase()) )  )">
+                <div class="ng-hide" ng-show="(vm.data.search.length > 0 && (tab.title.toLowerCase().includes(vm.data.search.toLowerCase()) || tab.url.toLowerCase().includes(vm.data.search.toLowerCase()) )  )">
                     <div tab="tab" window="window" id-last-chrome-window="vm.data.idLastChromeWindow"
                          on-click="vm.clickTab(tab)" on-close="vm.clickCloseTab(tab)"></div>
                 </div>
@@ -182,7 +182,6 @@
 <!-- SCRIPTS -->
 
 <script src="../bower_components/angular/angular.js"></script>
-<script src="../bower_components/angular-animate/angular-animate.min.js"></script>
 
 <script src="core/core.module.js"></script>
 <script src="core/core.controller.js"></script>
