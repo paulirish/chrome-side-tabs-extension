@@ -246,9 +246,6 @@
                         .separator {\
                             background: + ' + items.tab.borderColor + ';\
                         }\
-                        .window-separator {\
-                            color: ' + items.tab.borderColor + ' \
-                        }\
                         ');
 
                 angular.element(document.querySelector('head')).append(style);
@@ -367,6 +364,7 @@
 
                 // Reset number of tabs to 0;
                 vm.data.numberOfTabs = 0;
+                vm.data.numberOfPinnedTabs = 0;
 
                 var filteredWindows = [];
 
@@ -383,6 +381,7 @@
 
                         for (var j = 0; j < windows[i].tabs.length; j++) {
                             vm.data.numberOfTabs++;
+                            if (windows[i].tabs[j].pinned) vm.data.numberOfPinnedTabs++;
                         }
                     }
 

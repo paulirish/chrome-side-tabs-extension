@@ -173,10 +173,18 @@ body {
   opacity: 0.8; }
 
 .window-separator {
-  margin: 8px;
-  opacity: 0.6;
+    color: #ffffff;
   font-size: 0.85em;
   text-align: center; }
+
+.windowContainer {
+  padding: 8px 0;
+}
+
+/* zebra stripe windows */
+.windowContainer:nth-child(2n) {
+  background: #bdbdbd;
+}
 
 .button {
   margin-bottom: 4px;
