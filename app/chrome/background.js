@@ -35,7 +35,7 @@
         // );
 
         chrome.windows.create({
-            'url': chrome.runtime.getURL('app/index.html#?idChromeWindow=' + idCurrentChromeWindow + '&screenWidth=' + screen.width),
+            'url': chrome.runtime.getURL(`app/index.html#?idChromeWindow=${idCurrentChromeWindow}&screenWidth=${screen.width}`),
             'left': isLeftSide ? 0 : screen.width - width,
             'top': 0,
             'width': width,

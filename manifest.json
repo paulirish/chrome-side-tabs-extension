@@ -28,10 +28,5 @@
       "page": "app/chrome/options/options.html"
    },
    "permissions": [ "tabs", "storage" , "system.display"],
-   "version": "2.0.3",
-   "web_accessible_resources": [{
-      "resources": ["app/index.html", "app/core/directives/tab/tab.html", "assets/images/*" ],
-      "matches": ["*://*/*"],
-       "use_dynamic_url": true
-   }] 
+   "version": "3.0.0"
 }
