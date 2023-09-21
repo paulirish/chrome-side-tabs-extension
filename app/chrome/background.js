@@ -5,14 +5,26 @@
     var isLeftSide = true;
     var width = 365;
 
+
+
     function initSideTabs() {
 
-        chrome.system.display.getInfo(data => console.log('disdplayinfo', data));
-        const screen  = { width: 2000, height: 1000};
+        chrome.system.display.getInfo({}, displayUnitInfos => {
+            // https://developer.chrome.com/docs/extensions/reference/system_display/#method-getInfo
+            const info = displayUnitInfos.find(i => i.isPrimary)
+            const screen = info.bounds;
+            launchPopup(screen)
+            // console.log('disdplayinfo', data);
+        });
+
+    }
+    function launchPopup(screen) {
 
         if (width < 30 || width > screen.width - 30) {
             width = 365;
         }
+
+        width = Math.min(600, width);
 
         // nothx
         // chrome.windows.update(idCurrentChromeWindow,
