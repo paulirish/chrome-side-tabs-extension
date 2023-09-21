@@ -104,6 +104,18 @@ body {
       border-radius: 5px;
       background: whitesmoke;
       z-index: 2; }
+
+/* highlight the currently selected tab. */
+    .ng-isolate-scope .tab.highlighted {
+  background: white;
+  border-left: 26px solid #03A9F4;
+}
+/* highlight currently selected window */
+.windowContainer.ng-scope:has(.tab.highlighted) {
+  background: lch(81.68 18.99 287.43 / 1);
+  padding-left: 5px;
+}
+
     .tab-wrapper .tab .title {
       height: 100%;
       min-width: 0;

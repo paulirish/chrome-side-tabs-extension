@@ -30,8 +30,8 @@
             tabWidth: 250,
             showSettings: false,
             showTabsForSelectedWindow: false,
-            showTabsGroupedPerWindow: false,
-            showPinnedTabs: false,
+            showTabsGroupedPerWindow: true,
+            showPinnedTabs: true,
             showSearch: false
         };
         vm.mainChromeWindow = {
@@ -109,6 +109,11 @@
             // if (vm.optionsSettings.autoMinimize) {
             //     $interval(vm.checkChromeWindowState, 1000);
             // }
+
+            setTimeout(() => {
+                const el = document.querySelector('.ng-isolate-scope .tab.highlighted');
+                el.scrollIntoView({behavior: 'smooth', block: 'center'});
+            }, 500);
 
             vm.loadTabs();
 

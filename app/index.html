@@ -58,7 +58,7 @@
 
                 <div class="tabs">
 
-                    <div class="tab"
+                    <!-- <div class="tab"
                          ng-class="{highlighted: vm.settings.showTabsForSelectedWindow}"
                          ng-click="vm.clickShowTabsForSelectedWindow()">
                         <div class="icon">
@@ -69,9 +69,9 @@
                         Show only tabs of current window
                     </span>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="tab"
+                    <!-- <div class="tab"
                          ng-class="{highlighted: vm.settings.showTabsGroupedPerWindow}"
                          ng-click="vm.clickShowTabsGroupedPerWindow()">
                         <div class="icon">
@@ -82,9 +82,9 @@
                         Show window separators
                     </span>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="tab"
+                    <!-- <div class="tab"
                          ng-class="{highlighted: vm.settings.showPinnedTabs}"
                          ng-click="vm.clickShowPinnedTabs()">
                         <div class="icon">
@@ -95,7 +95,7 @@
                         Show pinned tabs
                     </span>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="tab" ng-click="vm.clickMoreSettings()">
 
@@ -150,7 +150,7 @@
 
     <div class="tabs">
 
-        <div ng-repeat="window in vm.data.windows track by window.id">
+        <div class="windowContainer" ng-repeat="window in vm.data.windows track by window.id">
 
             <div class="window-separator ng-cloak" ng-if="vm.settings.showTabsGroupedPerWindow && vm.data.search.length == 0">
                 Window
