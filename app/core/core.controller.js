@@ -110,10 +110,13 @@
             //     $interval(vm.checkChromeWindowState, 1000);
             // }
 
-            setTimeout(() => {
+            const int = setInterval(() => {
                 const el = document.querySelector('.ng-isolate-scope .tab.highlighted');
-                el.scrollIntoView({behavior: 'smooth', block: 'center'});
-            }, 500);
+                if (el?.scrollIntoView) {
+                    clearInterval(int);
+                    el.scrollIntoView({behavior: 'smooth', block: 'center'});
+                }
+            }, 200);
 
             vm.loadTabs();
 
