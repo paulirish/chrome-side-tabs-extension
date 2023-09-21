@@ -7,6 +7,9 @@
 
     function initSideTabs() {
 
+        chrome.system.display.getInfo(data => console.log('disdplayinfo', data));
+        const screen  = { width: 2000, height: 1000};
+
         if (width < 30 || width > screen.width - 30) {
             width = 365;
         }
@@ -20,7 +23,7 @@
         // );
 
         chrome.windows.create({
-            'url': chrome.extension.getURL('app/index.html#?idChromeWindow=' + idCurrentChromeWindow + '&screenWidth=' + screen.width),
+            'url': chrome.runtime.getURL('app/index.html#?idChromeWindow=' + idCurrentChromeWindow + '&screenWidth=' + screen.width),
             'left': isLeftSide ? 0 : screen.width - width,
             'top': 0,
             'width': width,
@@ -32,7 +35,7 @@
 
     }
 
-    chrome.browserAction.onClicked.addListener(function () {
+    chrome.action.onClicked.addListener(function () {
 
         chrome.windows.getCurrent({}, function (window) {
 

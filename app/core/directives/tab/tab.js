@@ -20,7 +20,7 @@
                 onClick: '&',
                 onClose: '&'
             },
-            templateUrl: chrome.extension.getURL('app/core/directives/tab/tab.html')
+            templateUrl: chrome.runtime.getURL('app/core/directives/tab/tab.html')
         };
         return directive;
 
