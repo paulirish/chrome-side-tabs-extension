@@ -115,6 +115,12 @@
                 if (el?.scrollIntoView) {
                     clearInterval(int);
                     el.scrollIntoView({behavior: 'smooth', block: 'center'});
+
+                    // set this up for later
+                    document.querySelector('#scrolltoactive').addEventListener('click', () => {
+                        document.querySelector('.ng-isolate-scope .tab.highlighted').scrollIntoView({behavior: 'smooth', block: 'center'});
+                    });
+
                 }
             }, 200);
 
@@ -122,6 +128,7 @@
 
             // Revert Main Chrome Window to initial width when closing Side Tabs
             window.onbeforeunload = vm.onExit;
+
 
             vm.initChromeEvents();
 

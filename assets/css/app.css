@@ -174,11 +174,13 @@ body {
 
 .window-separator {
     color: #ffffff;
+      position: relative;
+  top: 4px;
   font-size: 0.85em;
   text-align: center; }
 
 .windowContainer {
-  padding: 8px 0;
+  margin: 8px 0;
 }
 
 /* zebra stripe windows */
