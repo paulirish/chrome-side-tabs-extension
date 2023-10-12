@@ -49,6 +49,8 @@
             var close = angular.element(element[0].querySelector('.close'))[0];
             close.addEventListener('mousedown', function(e) {
                 e.stopPropagation();
+                // hack because what even is all this.
+                scope.tab.elem = e.target;
                 scope.onClose({tab: scope.tab});
             });
 

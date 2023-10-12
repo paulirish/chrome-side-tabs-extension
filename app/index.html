@@ -45,7 +45,7 @@
             </div>
 
             <div class="tab absolute-tab fade" ng-show="vm.settings.showSearch">
-                <input class="form-control" type="search" placeholder="Search" id="search"
+                <input class="form-control" type="search" placeholder="Filter" id="search"
                        ng-model="vm.data.search" ng-change="vm.loadTabs()" ng-model-options="{ debounce: 50 }">
             </div>
         </div>
@@ -54,7 +54,7 @@
 
 
         <div class="ng-cloak" ng-if="vm.settings.showSettings">
-            <div class="tabs-wrapper">
+            <div class="tabs-wrapper tabs-wrapper--settings">
 
                 <div class="tabs">
 
@@ -120,6 +120,32 @@
                         </div>
                     </div>
 
+
+                    <div class="tab" id="sortbyurl" >
+
+                        <div class="icon">
+                            <i class="fa fa-lg"></i>
+                        </div>
+                        <div class="title">
+                    <span>
+                        Sort by URL (breaks stuff, but filter/close still work)
+                    </span>
+                        </div>
+                    </div>
+
+
+                    <div class="tab" id="sortbytitle" >
+
+                        <div class="icon">
+                            <i class="fa fa-lg"></i>
+                        </div>
+                        <div class="title">
+                    <span>
+                        Sort by TITLE (breaks stuff, but filter/close still work)
+                    </span>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
@@ -130,7 +156,7 @@
 
         <div class="ng-cloak" ng-if="vm.settings.showPinnedTabs && vm.data.numberOfPinnedTabs">
 
-            <div class="tabs-wrapper">
+            <div class="tabs-wrapper tabs-wrapper--pinned">
 
                 <div class="window-separator ng-cloak" ng-if="vm.settings.showTabsGroupedPerWindow">
                     Pinned Tabs
@@ -157,7 +183,7 @@
 
 </div>
 
-<div class="tabs-wrapper">
+<div class="tabs-wrapper tabs-wrapper--normaltabs">
 
     <div class="tabs">
 
@@ -167,7 +193,7 @@
                 Window
             </div>
 
-            <div ng-repeat="tab in window.tabs track by tab.id">
+            <div ng-repeat="tab in window.tabs track by tab.id" class="tab-container">
                 <div ng-if="vm.data.search.length === 0">
                     <div ng-if="!tab.pinned && vm.settings.showPinnedTabs"
                          tab="tab" window="window" id-last-chrome-window="vm.data.idLastChromeWindow"

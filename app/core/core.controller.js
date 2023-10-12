@@ -121,6 +121,42 @@
                         document.querySelector('.ng-isolate-scope .tab.highlighted').scrollIntoView({behavior: 'smooth', block: 'center'});
                     });
 
+
+                    document.querySelector('#sortbyurl').addEventListener('click', () => {
+                        const tabs = Array.from(document.body.querySelectorAll('.tab-container'));
+
+                        for (const tab of tabs) {
+                            if (tab.url) continue;
+                            let url = new URL(tab.querySelector('div.title').dataset.url);
+                            tab.url = url.toString();
+
+                            // special logic for great suspender
+                            if (url.hash) {
+                                // its not url encoded, so we dont read it with urlsearchparams
+                                const index = url.hash.indexOf('uri=');
+                                if (index !== -1) {
+                                    const uri = url.hash.slice(index + 'uri='.length);
+                                    tab.url = uri;
+                                }
+                            }
+                        }
+
+                        const container = document.querySelector('.tabs-wrapper--normaltabs > .tabs');
+                        // TODO this could be optimzied a lot
+                        const sortedTabs = tabs.sort((a, b) => a.url.localeCompare(b.url));
+                        container.append(...sortedTabs);
+                        window.dontUpdate = true;
+                    });
+
+                    document.querySelector('#sortbytitle').addEventListener('click', () => {
+                        const tabs = Array.from(document.body.querySelectorAll('.tab-container'));
+                        const container = document.querySelector('.tabs-wrapper--normaltabs > .tabs');
+                        const sortedTabs = tabs.sort((a, b) => a.textContent.localeCompare(b.textContent));
+                        container.append(...sortedTabs);
+                        window.dontUpdate = true;
+                    });
+
+
                 }
             }, 200);
 
@@ -319,9 +355,12 @@
         }
 
         function clickCloseTab(tab) {
-
             chrome.tabs.remove(tab.id, function () {
                 vm.loadTabs();
+                // hax
+                if (window.dontUpdate) {
+                    tab.elem.closest('.tab-container').remove();
+                }
             })
 
         }
@@ -366,6 +405,7 @@
         }
 
         function loadTabs(callback) {
+            if (window.dontUpdate) return;
 
             chrome.windows.getAll({"populate": true}, function (windows) {
 
