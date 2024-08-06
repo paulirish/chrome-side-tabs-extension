@@ -54,7 +54,8 @@ body {
   max-height: 100%;
   overflow: auto; }
   .tabs-wrapper .tabs {
-    display: block; }
+    display: block;
+     }
     .tabs-wrapper .tabs .space {
       width: 100%;
       height: 5px; }
@@ -62,6 +63,13 @@ body {
       clear: both;
       content: "";
       display: table; }
+
+
+/* space at the end so closing tabs always scrolls the content the same way. */
+.clear:last-child {
+  padding-bottom: 80vh;
+  background: repeating-linear-gradient(-45deg, #ccc, #ccc 5px, #bbb 0, #bbb 10px);
+}
 
 .tab-wrapper {
   width: 100%; }
